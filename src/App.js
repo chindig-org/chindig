@@ -5,6 +5,7 @@ import { HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 
 import SimpleTabs from './Tabs';
+import EventView from './EventView';
 
 
 
@@ -46,8 +47,9 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
 
           <RouteWithProps exact path='/' component={SimpleTabs} />
+          <RouteWithProps path='/event/:id' component={EventView}/>
           <RouteWithProps path='/profile' component={SimpleTabs}/>
-          <RouteWithProps path='/event/:id' component={SimpleTabs}/>
+
           {/*<RouteWithProps exact path='/about' component={About}/>*/}
         </MuiThemeProvider>
       </Router>

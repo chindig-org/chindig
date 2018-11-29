@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid'
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const styles = theme => ({
   input: {
@@ -16,9 +17,8 @@ const styles = theme => ({
 class Suggested extends Component {
 
   constructor(props) {
-      super(props)
+      super(props);
 
-      console.log('event props', props)
       this.state = {
         events: props.events
       };
@@ -37,11 +37,11 @@ class Suggested extends Component {
   }
 
   onEventSave = (evt, eventObj) => {
-    this.props.onSave(eventObj)
+    this.props.onSave(eventObj);
   }
 
   onEventUnsave = (evt, eventObj) => {
-    this.props.onUnsave(eventObj)
+    this.props.onUnsave(eventObj);
   }
 
   render() {
@@ -55,7 +55,7 @@ class Suggested extends Component {
           </div>
 
           <div className="event-text">
-            <div className="name">{event.name}</div>
+            <Link className="name" to={'/event/' + event.name}>{event.name}</Link>
             <div className="location">@ {event.location}</div>
 
             <div className="day">{this.getDate(event.start)}</div>

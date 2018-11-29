@@ -84,6 +84,10 @@ const styles = theme => ({
   },
   mainImage: {
     borderRadius: 5,
+  },
+  socialLink: {
+    color: '#424242',
+    textDecoration: 'none',
   }
 });
 
@@ -161,29 +165,35 @@ class EventView extends React.Component {
             </Grid>
             {/* End main content */}
             {/* Sidebar */}
-            {/* <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4}>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <Typography variant="h6" gutterBottom>
                   About
                 </Typography>
                 <Typography>
-                  Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
-                  amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+                  Volumes Bookcafe is Wicker Park's new neighborhood independent bookstore cafe.
+                  With heavily curated shelves of books, and a tasty menu of baked goods, quality
+                  espresso drinks and an array of local beer and wine, we aim to create a warm and
+                  inviting community space for book lovers of all ages.
                 </Typography>
-              </Paper>
-              <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-                Archives
-              </Typography>
-              {archives.map(archive => (
-                <Typography key={archive}>{archive}</Typography>
-              ))}
+              </Paper>              
               <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
                 Social
               </Typography>
-              {social.map(network => (
-                <Typography key={network}>{network}</Typography>
-              ))}
-            </Grid> */}
+              <Typography>
+                <a className={classes.socialLink} target="_blank"
+                href="https://www.facebook.com/volumesbooks/">Facebook</a>
+              </Typography>
+              <Typography>
+                <a className={classes.socialLink} target="_blank"
+                href="https://twitter.com/volumesbooks?lang=en">Twitter</a>
+              </Typography>
+              {
+                //social.map(network => (
+                //<Typography key={network}>{network}</Typography>
+                //))
+              }
+            </Grid>
             {/* End sidebar */}
           </Grid>
         </main>

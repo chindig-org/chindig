@@ -162,7 +162,23 @@ class EventView extends React.Component {
               <p> 
                 {eventObj.description}
               </p>
-            </Grid>
+              <Typography variant="h6" gutterBottom>
+                Outer Link
+              </Typography>
+              <Divider />
+                <p>
+                  <a target="_blank" href={eventObj.url}>
+                    {eventObj.url}
+                  </a>
+                </p>              
+              <Typography variant="h6" gutterBottom>
+                Fee
+              </Typography>
+              <Divider />
+              <p> 
+                ${eventObj.cost}
+              </p>
+            </Grid>            
             {/* End main content */}
             {/* Sidebar */}
             <Grid item xs={12} md={4}>

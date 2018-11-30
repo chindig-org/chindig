@@ -84,6 +84,8 @@ const styles = theme => ({
   },
   mainImage: {
     borderRadius: 5,
+    width: '100%',
+    height: '60vh',
   },
   socialLink: {
     color: '#424242',

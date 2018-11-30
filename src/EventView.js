@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import SearchIcon from '@material-ui/icons/Search';
+import moment from '../node_modules/moment';
 
 import { Link } from "react-router-dom";
 
@@ -107,6 +108,13 @@ class EventView extends React.Component {
     }
   }
 
+  getDate(datetime) {
+    return moment(datetime).format('dddd, MMM Do');
+  }
+
+  getTime(datetime) {
+    return moment(datetime).format('h:mm a');
+  }
 
   render() {
     const { classes } = this.props;
@@ -140,7 +148,7 @@ class EventView extends React.Component {
         <main>
           {/* Main featured post */}
           <div className={classes.mainFeaturedPost}>
-            <img className={classes.mainImage} src={`./${eventObj.image}`} style={{width:'100%', height:500}}/>
+            <img className={classes.mainImage} src={`./${eventObj.image}`} />
             <Grid container>
               <Grid item >
                 <div className={classes.mainFeaturedPostContent}>
@@ -148,7 +156,9 @@ class EventView extends React.Component {
                     {eventObj.name}
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
-                    {eventObj.start} @ {eventObj.location} 
+                    {this.getDate(eventObj.start)} 
+                    <span> {this.getTime(eventObj.start)} </span> 
+                    @ {eventObj.location} 
                   </Typography>
                 </div>
               </Grid>

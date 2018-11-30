@@ -8,14 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Hidden from '@material-ui/core/Hidden';
-import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import SearchIcon from '@material-ui/icons/Search';
 import moment from '../node_modules/moment';
 
 import { Link } from "react-router-dom";
@@ -48,8 +42,6 @@ const styles = theme => ({
     justifyContent: 'space-between',
   },
   mainFeaturedPost: {
-    // backgroundColor: theme.palette.grey[800],
-    // color: theme.palette.common.white,
     marginBottom: theme.spacing.unit * 1,
     paddingBottom: 0,
   },
@@ -215,12 +207,7 @@ class EventView extends React.Component {
               <Typography>
                 <a className={classes.socialLink} target="_blank"
                 href="https://twitter.com/volumesbooks?lang=en">Twitter</a>
-              </Typography>
-              {
-                //social.map(network => (
-                //<Typography key={network}>{network}</Typography>
-                //))
-              }
+              </Typography>              
             </Grid>
             {/* End sidebar */}
           </Grid>

@@ -12,9 +12,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import InputBase from '@material-ui/core/InputBase';
 import LinearProgress from '@material-ui/core/LinearProgress';
-
-
 import Hidden from '@material-ui/core/Hidden';
+
+import Settings from './Settings';
 
 const styles = theme => ({
   root: {
@@ -84,7 +84,8 @@ class Navbar extends React.Component {
     super(props);
 
     this.state = {
-      showSearch: false
+      showSearch: false,
+      showSettings: false
     };
   }
 
@@ -106,23 +107,31 @@ class Navbar extends React.Component {
   }
 
 
+  openSettings = () => {
+    this.setState({ showSettings: true });
+  };
+
+
+
   render() {
     const { classes } = this.props;
-    const { showSearch, isLoading } = this.state;
+    const { showSearch, showSettings, isLoading } = this.state;
 
     return (
       <div className={classes.root}>
         <AppBar position="static" style={{paddingTop: isLoading ? '' :'5px', marginTop: '-5px'}}>
         {isLoading && <LinearProgress color="secondary" style={{top: '5px'}} />}
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Settings Menu">
+            <IconButton onClick={this.openSettings} className={classes.menuButton} color="inherit" aria-label="Settings Menu">
               <GearIcon />
             </IconButton>
 
-            {!showSearch &&
+            {
+              !showSearch &&
               <Typography variant="h6" color="inherit" className={classes.grow}>
                 <div className="logo">Chindig</div>
-              </Typography>}
+              </Typography>
+            }
 
 
             {/* desktop */}
@@ -145,38 +154,49 @@ class Navbar extends React.Component {
             </Hidden>
 
             {/* mobile */}
-            {showSearch &&
-              <Hidden mdUp>
-                <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
+            {
+              showSearch &&
+                <Hidden mdUp>
+                  <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    onChange={this.handleChange}
+                    placeholder="Search…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                  />
                 </div>
-                <InputBase
-                  onChange={this.handleChange}
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                />
-              </div>
-            </Hidden>}
+              </Hidden>
+            }
 
-            {!showSearch &&
-            <Hidden mdUp>
-              <Button className={classes.menuButton} color="inherit" aria-label="open search button" onClick={this.toggleSearch}>
-                <SearchIcon />
-              </Button>
-            </Hidden>}
+            {
+              !showSearch &&
+              <Hidden mdUp>
+                <Button className={classes.menuButton} color="inherit" aria-label="open search button" onClick={this.toggleSearch}>
+                  <SearchIcon />
+                </Button>
+              </Hidden>
+            }
 
-            {showSearch &&
+            {
+              showSearch &&
               <Button className={classes.menuButton} color="inherit" aria-label="close search button" onClick={this.toggleSearch}>
                 <CloseIcon />
               </Button>
-              }
+            }
+
+
+            <Settings open={showSettings} />
 
           </Toolbar>
         </AppBar>
+
+
+
       </div>
     );
   }

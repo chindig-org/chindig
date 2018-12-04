@@ -93,6 +93,7 @@ class Navbar extends React.Component {
     let query = event.target.value
 
     this.setState({isLoading: true});
+    this.setState({showSettings: false});
     setTimeout(() => {
       this.props.onSearch(query)
       this.setState({isLoading: false});

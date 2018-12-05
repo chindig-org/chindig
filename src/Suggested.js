@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 // import CardContent from '@material-ui/core/CardContent';
 
+
 import { Link } from "react-router-dom";
 
 
@@ -27,12 +28,17 @@ class Suggested extends Component {
       super(props);
 
       this.state = {
-        events: props.events
+        events: props.events,
+        filters: props.filters || []
       };
   }
+  component
 
   componentWillReceiveProps(props) {
-    this.setState({events: props.events})
+    this.setState({
+      events: props.events,
+      filters: props.filters || []
+    })
   }
 
   getDate(datetime) {
@@ -52,6 +58,8 @@ class Suggested extends Component {
     evt.preventDefault();
     this.props.onUnsave(eventObj);
   }
+
+
 
   render() {
     const { classes } = this.props;
@@ -94,6 +102,19 @@ class Suggested extends Component {
 
     return (
       <div>
+
+          {this.state.filters.length !== 0  &&
+            <div style={{marginBottom: '7px'}}>Filtered By: {
+              this.state.filters.map((name, i) => {
+              return <Chip style={{marginRight: '5px'}} label={name}
+                  className={`chip ${classes.chip} chip-selected`}
+                  onDelete={this.props.onDelete(name)}
+                  variant="outlined"
+                  key={i}/>
+            })}
+            </div>
+          }
+
         <Grid container spacing={24}>
           { events }
         </Grid>

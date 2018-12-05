@@ -62,6 +62,17 @@ class SimpleTabs extends React.Component {
     this.setState({events: filteredEvents, query});
   }
 
+  onDelete = (name) => {
+    console.log('name to filter', name, this.state.filters)
+    let newFilters = this.state.filters.filter(f => f !== name)
+    console.log('newFilters', newFilters)
+
+    this.setState({
+      filters: newFilters
+    });
+  }
+
+
   onFilter = (obj) => {
     let types = obj.types;
 
@@ -74,7 +85,10 @@ class SimpleTabs extends React.Component {
       return types.indexOf(event.tag) !== -1;
     });
 
-    this.setState({events: filteredEvents});
+    this.setState({
+      events: filteredEvents,
+      filters: types
+    });
   }
 
 
@@ -113,7 +127,11 @@ class SimpleTabs extends React.Component {
         {value === 0 &&
           <TabContainer>
             <div className="tab-container">
-              <Suggested events={events} onSave={this.onSaveEvent} onUnsave={this.onUnsaveEvent}/>
+              <Suggested events={events}
+                onSave={this.onSaveEvent}
+                onUnsave={this.onUnsaveEvent}
+                filters={this.state.filters}
+                onDelete={this.onDelete} />
             </div>
           </TabContainer>}
         {value === 1 &&

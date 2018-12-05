@@ -21,6 +21,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import CalendarIcon from '@material-ui/icons/CalendarToday';
+import LabelIcon from '@material-ui/icons/Label';
 import moment from 'moment';
 
 // should also be component
@@ -166,8 +167,6 @@ class Navbar extends React.Component {
     this.setState({ showFilters: false });
   }
 
-
-
   openSettings = () => {
     this.setState({ showSettings: true });
   };
@@ -231,7 +230,7 @@ class Navbar extends React.Component {
         <Divider />
 
         <ListItem>
-          <ListItemIcon><CalendarIcon /></ListItemIcon>
+          <ListItemIcon><LabelIcon /></ListItemIcon>
           <ListItemText primary={'By Type'} />
 
           {this.state.types.map((t, i) => {

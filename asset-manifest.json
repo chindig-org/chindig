@@ -1,13 +1,13 @@
 {
-  "main.css": "/chindig/static/css/main.7207bde7.chunk.css",
-  "main.js": "/chindig/static/js/main.ef56d372.chunk.js",
-  "main.js.map": "/chindig/static/js/main.ef56d372.chunk.js.map",
-  "static/js/1.5f0f28cd.chunk.js": "/chindig/static/js/1.5f0f28cd.chunk.js",
-  "static/js/1.5f0f28cd.chunk.js.map": "/chindig/static/js/1.5f0f28cd.chunk.js.map",
+  "main.css": "/chindig/static/css/main.95b9ef68.chunk.css",
+  "main.js": "/chindig/static/js/main.e9e57cec.chunk.js",
+  "main.js.map": "/chindig/static/js/main.e9e57cec.chunk.js.map",
+  "static/js/1.f1950b62.chunk.js": "/chindig/static/js/1.f1950b62.chunk.js",
+  "static/js/1.f1950b62.chunk.js.map": "/chindig/static/js/1.f1950b62.chunk.js.map",
   "runtime~main.js": "/chindig/static/js/runtime~main.d9b232f1.js",
   "runtime~main.js.map": "/chindig/static/js/runtime~main.d9b232f1.js.map",
-  "static/css/main.7207bde7.chunk.css.map": "/chindig/static/css/main.7207bde7.chunk.css.map",
+  "static/css/main.95b9ef68.chunk.css.map": "/chindig/static/css/main.95b9ef68.chunk.css.map",
   "index.html": "/chindig/index.html",
-  "precache-manifest.a2c723a37b5636649fc46288636a7fcd.js": "/chindig/precache-manifest.a2c723a37b5636649fc46288636a7fcd.js",
+  "precache-manifest.1bb7ec2a595611f084c01a2155d1e00d.js": "/chindig/precache-manifest.1bb7ec2a595611f084c01a2155d1e00d.js",
   "service-worker.js": "/chindig/service-worker.js"
 }

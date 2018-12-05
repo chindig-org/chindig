@@ -62,6 +62,21 @@ class SimpleTabs extends React.Component {
     this.setState({events: filteredEvents, query});
   }
 
+  onFilter = (obj) => {
+    let types = obj.types;
+
+    if (!types.length) {
+      this.setState({events});
+      return
+    }
+
+    let filteredEvents = events.filter(event => {
+      return types.indexOf(event.tag) !== -1;
+    });
+
+    this.setState({events: filteredEvents});
+  }
+
 
   onTabChange = (event, value) => {
     this.setState({ value });
@@ -86,7 +101,7 @@ class SimpleTabs extends React.Component {
 
     return (
       <div className={classes.root}>
-        <Navbar onSearch={this.onSearch} />
+        <Navbar onSearch={this.onSearch} onFilter={this.onFilter}/>
 
         <AppBar position="static" className={classes.grow}>
           <Tabs value={value} onChange={this.onTabChange} centered fullWidth>

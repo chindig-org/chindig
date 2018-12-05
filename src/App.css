@@ -113,3 +113,15 @@ button {
 .event:hover .event-text .name {
   text-decoration: underline;
 }
+
+.chip.chip-selected {
+  background-color: #009bd1;
+  color: #fff
+}
+
+.chip.chip-selected:focus {
+  background-color: #009bd1 !important;
+}
+.chip.chip-selected:focus {
+  background-color: #0ca5dd !important;
+}

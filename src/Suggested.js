@@ -58,10 +58,10 @@ class Suggested extends Component {
 
     let events = this.state.events.map((event, i) =>
       <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={i} >
-        <Link to={'/event/' + event.name}>
+        <Link to={'/event/' + encodeURIComponent(event.name)}>
           <Card className={`${classes.card} event`}>
 
-            <img src={`./${event.image}`} alt="test" />
+            <img src={event.image} alt="test" />
 
             <div className="event-tag">
               <Chip label={event.tag} color="secondary" />

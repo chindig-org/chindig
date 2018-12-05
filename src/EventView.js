@@ -92,8 +92,9 @@ class EventView extends React.Component {
   constructor(props) {
     super(props);
 
-    let eventName = this.props.match.params.id;
+    let eventName = decodeURIComponent(this.props.match.params.id);
     let eventObj = events.filter(e => e.name === eventName)[0]
+
 
     this.state = {
       eventObj
@@ -112,7 +113,7 @@ class EventView extends React.Component {
     const { classes } = this.props;
     const { eventObj } = this.state;
 
-    console.log('eventObj', eventObj)
+    console.log('eventObj', eventObj, eventObj)
 
 
     return (
@@ -140,7 +141,7 @@ class EventView extends React.Component {
         <main>
           {/* Main featured post */}
           <div className={classes.mainFeaturedPost}>
-            <img className={classes.mainImage} src={`./${eventObj.image}`} alt="Event page"/>
+            <img className={classes.mainImage} src={eventObj.image} alt="Event page"/>
             <Grid container>
               <Grid item >
                 <div className={classes.mainFeaturedPostContent}>

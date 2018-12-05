@@ -67,7 +67,7 @@ class Settings extends React.Component {
       o3: false,
       o4: false,
       o5: false,
-      frequency: 1,
+      frequency: 2,
       numberNote: 10,
       preference: "relevant",
       noOneCheck: true,
@@ -90,18 +90,43 @@ class Settings extends React.Component {
 
   handleClick1 = () => {
     this.setState(state => ({ o1: !state.o1 }));
+
+    this.setState(state => ({ o2: false }));
+    this.setState(state => ({ o3: false }));
+    this.setState(state => ({ o4: false }));
+    this.setState(state => ({ o5: false }));
   };
   handleClick2 = () => {
     this.setState(state => ({ o2: !state.o2 }));
+
+    this.setState(state => ({ o1: false }));
+    this.setState(state => ({ o3: false }));
+    this.setState(state => ({ o4: false }));
+    this.setState(state => ({ o5: false }));
   };
   handleClick3 = () => {
     this.setState(state => ({ o3: !state.o3 }));
+
+    this.setState(state => ({ o2: false }));
+    this.setState(state => ({ o1: false }));
+    this.setState(state => ({ o4: false }));
+    this.setState(state => ({ o5: false }));
   };
   handleClick4 = () => {
     this.setState(state => ({ o4: !state.o4 }));
+
+    this.setState(state => ({ o2: false }));
+    this.setState(state => ({ o3: false }));
+    this.setState(state => ({ o1: false }));
+    this.setState(state => ({ o5: false }));
   };
   handleClick5 = () => {
     this.setState(state => ({ o5: !state.o5 }));
+
+    this.setState(state => ({ o2: false }));
+    this.setState(state => ({ o3: false }));
+    this.setState(state => ({ o4: false }));
+    this.setState(state => ({ o1: false }));
   };
 
   handleSelectChange = event => {
@@ -171,11 +196,10 @@ class Settings extends React.Component {
                   id: 'note-freq',
                 }}
                 >
-                <MenuItem value={1}><em>per 30min</em></MenuItem>
-                <MenuItem value={2}>per hour</MenuItem>
-                <MenuItem value={3}>per day</MenuItem>
-                <MenuItem value={4}>per week</MenuItem>
-                <MenuItem value={5}>Never</MenuItem>
+                <MenuItem value={1}><em>per hour</em></MenuItem>
+                <MenuItem value={2}>per day</MenuItem>
+                <MenuItem value={3}>per week</MenuItem>
+                <MenuItem value={4}>Never</MenuItem>
                 </Select>
               </FormControl>
             </ListItem>
@@ -202,7 +226,7 @@ class Settings extends React.Component {
                 value={this.state.preference}
                 onChange={this.handleSwitchChange}
                 >
-                  <FormControlLabel value="relevant" control={<Radio />} label="Relevant" />
+                  <FormControlLabel value="relevant" control={<Radio />} label="My interest" />
                   <FormControlLabel value="recent" control={<Radio />} label="Recent" />
                   <FormControlLabel value="hotness" control={<Radio />} label="Hotness" />
                 </RadioGroup>
@@ -221,7 +245,7 @@ class Settings extends React.Component {
             <Collapse in={this.state.o2} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem>
-                <ListItemText inset primary="None" />
+                <ListItemText inset primary="Friends" />
                 <Switch
                   checked={this.state.noOneCheck}
                   onChange={this.handleNSwicthChange('noOneCheck')}
@@ -230,7 +254,7 @@ class Settings extends React.Component {
                 />
               </ListItem>
               <ListItem>
-                <ListItemText inset primary="Friends" />
+                <ListItemText inset primary="Group Member" />
                 <Switch
                   checked={this.state.friendCheck}
                   onChange={this.handleNSwicthChange('friendCheck')}
@@ -239,7 +263,7 @@ class Settings extends React.Component {
                 />
               </ListItem>
               <ListItem>
-                <ListItemText inset primary="Everyone" />
+                <ListItemText inset primary="Others" />
                 <Switch
                   checked={this.state.everyoneCheck}
                   onChange={this.handleNSwicthChange('everyoneCheck')}
@@ -328,8 +352,8 @@ class Settings extends React.Component {
             </Collapse>
             <Divider />
             <ListItem button onClick={this.handleClick5} className={this.state.o5?classes.clickColor:classes.common}>
-            <Icon>bookmark</Icon>
-              <ListItemText primary="About" secondary="Give the version" />
+            <Icon>help</Icon>
+              <ListItemText primary="Help" secondary="Give introduction on how to use it" />
               {this.state.o5 ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={this.state.o5} timeout="auto" unmountOnExit>
@@ -340,10 +364,6 @@ class Settings extends React.Component {
             </List>
             </Collapse>
             <Divider />
-            {/* <ListItem button>
-            <Icon>help</Icon>
-              <ListItemText primary="Help" secondary="Give introduction on how to use it" />
-            </ListItem> */}
             <Divider />
             <ListItem button>
             <Icon>power_settings_new</Icon>

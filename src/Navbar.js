@@ -39,8 +39,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Hidden from '@material-ui/core/Hidden';
 
 import Settings from './Settings';
-import Login from './Login';
-import { Icon } from '@material-ui/core';
 
 const events = require('./mock-data/events.json');
 
@@ -137,8 +135,7 @@ class Navbar extends React.Component {
       showSettings: false,
       startDate: sDate,
       endDate: eDate,
-      types: types,
-      showLogin: false,
+      types: types
 
     };
   }
@@ -170,6 +167,7 @@ class Navbar extends React.Component {
   }
 
 
+
   openSettings = () => {
     this.setState({ showSettings: true });
   };
@@ -181,12 +179,7 @@ class Navbar extends React.Component {
   onStartDateChange = (e) => {
     e.preventDefault()
   }
-  openLogin = () => {
-    this.setState({showLogin: true});
-  }
-  closeLogin = () => {
-    this.setState({showLogin: false});
-  }
+
   onEndDateChange = (e) => {
     e.preventDefault()
   }
@@ -211,7 +204,8 @@ class Navbar extends React.Component {
 
   render() {
     const { classes} = this.props;
-    const { showSearch, showSettings, showFilters, showLogin, isLoading } = this.state;
+    const { showSearch, showSettings, showFilters, isLoading } = this.state;
+
     const fullList = (
       <div className={classes.fullList}>
         <List>
@@ -285,13 +279,6 @@ class Navbar extends React.Component {
                 </IconButton>
               </Tooltip>
 
-              <Tooltip title="Login">
-                <IconButton onClick={this.openLogin} color="inherit" aria-label="Login operation">
-                  <Icon>account_circle</Icon>
-                </IconButton>
-                <Login open={this.openLogin} onClose={this.closeLogin} />
-              </Tooltip>
-
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />
@@ -338,12 +325,6 @@ class Navbar extends React.Component {
                   </IconButton>
                 </Tooltip>
 
-                <Tooltip title="Login">
-                 <IconButton onClick={this.openLogin} color="inherit" aria-label="Login operation">
-                  <Icon>account_circle</Icon>
-                </IconButton>
-              </Tooltip>
-
                 <IconButton className={classes.menuButton} color="inherit" aria-label="open search" onClick={this.toggleSearch}>
                   <SearchIcon />
                 </IconButton>
@@ -359,7 +340,7 @@ class Navbar extends React.Component {
 
 
             <Settings open={showSettings} onClose={this.onSettingsClose} />
-            <Login open={showLogin} onClose={this.closeLogin}/>
+
 
           </Toolbar>
         </AppBar>

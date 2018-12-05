@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/chindig/precache-manifest.a55fc74515bfeb40a3a8ffedefeb00f2.js"
+  "/chindig/precache-manifest.08a5a00b8b5eca70974c0cd589152d25.js"
 );
 
 workbox.clientsClaim();

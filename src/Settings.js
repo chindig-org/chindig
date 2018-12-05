@@ -85,6 +85,7 @@ class Settings extends React.Component {
 
   closeSettings = () => {
     this.setState({ open: false });
+    this.props.onClose();
   };
 
   handleClick1 = () => {
@@ -92,7 +93,7 @@ class Settings extends React.Component {
   };
   handleClick2 = () => {
     this.setState(state => ({ o2: !state.o2 }));
-  };  
+  };
   handleClick3 = () => {
     this.setState(state => ({ o3: !state.o3 }));
   };

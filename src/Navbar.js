@@ -93,7 +93,7 @@ class Navbar extends React.Component {
     let query = event.target.value
 
     this.setState({isLoading: true});
-    this.setState({showSettings: false});
+
     setTimeout(() => {
       this.props.onSearch(query)
       this.setState({isLoading: false});
@@ -112,7 +112,9 @@ class Navbar extends React.Component {
     this.setState({ showSettings: true });
   };
 
-
+  onSettingsClose = () => {
+    this.setState({ showSettings: false })
+  }
 
   render() {
     const { classes } = this.props;
@@ -121,8 +123,9 @@ class Navbar extends React.Component {
     return (
       <div className={classes.root}>
         <AppBar position="static" style={{paddingTop: isLoading ? '' :'5px', marginTop: '-5px'}}>
-        {isLoading && <LinearProgress color="secondary" style={{top: '5px'}} />}
+          {isLoading && <LinearProgress color="secondary" style={{top: '5px'}} />}
           <Toolbar>
+
             <IconButton onClick={this.openSettings} className={classes.menuButton} color="inherit" aria-label="Settings Menu">
               <GearIcon />
             </IconButton>
@@ -190,8 +193,7 @@ class Navbar extends React.Component {
               </Button>
             }
 
-
-            <Settings open={showSettings} />
+            <Settings open={showSettings} onClose={this.onSettingsClose} />
 
           </Toolbar>
         </AppBar>

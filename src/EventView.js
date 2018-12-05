@@ -22,7 +22,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   layout: {
-    width: 'auto',    
+    width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
@@ -133,14 +133,14 @@ class EventView extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <span></span>        
+        <span></span>
         <React.Fragment>
       <CssBaseline />
       <div className={classes.layout}>
         <main>
           {/* Main featured post */}
           <div className={classes.mainFeaturedPost}>
-            <img className={classes.mainImage} src={`./${eventObj.image}`} />
+            <img className={classes.mainImage} src={`./${eventObj.image}`} alt="Event page"/>
             <Grid container>
               <Grid item >
                 <div className={classes.mainFeaturedPostContent}>
@@ -148,9 +148,9 @@ class EventView extends React.Component {
                     {eventObj.name}
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
-                    {this.getDate(eventObj.start)} 
-                    <span> {this.getTime(eventObj.start)} </span> 
-                    @ {eventObj.location} 
+                    {this.getDate(eventObj.start)}
+                    <span> {this.getTime(eventObj.start)} </span>
+                    @ {eventObj.location}
                   </Typography>
                 </div>
               </Grid>
@@ -163,7 +163,7 @@ class EventView extends React.Component {
                 Detail
               </Typography>
               <Divider />
-              <p> 
+              <p>
                 {eventObj.description}
               </p>
               <Typography variant="h6" gutterBottom>
@@ -171,18 +171,18 @@ class EventView extends React.Component {
               </Typography>
               <Divider />
                 <p>
-                  <a target="_blank" href={eventObj.url}>
+                  <a target="_blank" href={eventObj.url} rel="noopener noreferrer">
                     {eventObj.url}
                   </a>
-                </p>              
+                </p>
               <Typography variant="h6" gutterBottom>
                 Fee
               </Typography>
               <Divider />
-              <p> 
+              <p>
                 ${eventObj.cost}
               </p>
-            </Grid>            
+            </Grid>
             {/* End main content */}
             {/* Sidebar */}
             <Grid item xs={12} md={4}>
@@ -196,25 +196,25 @@ class EventView extends React.Component {
                   espresso drinks and an array of local beer and wine, we aim to create a warm and
                   inviting community space for book lovers of all ages.
                 </Typography>
-              </Paper>              
+              </Paper>
               <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
                 Social
               </Typography>
               <Typography>
-                <a className={classes.socialLink} target="_blank"
+                <a className={classes.socialLink} target="_blank" rel="noopener noreferrer"
                 href="https://www.facebook.com/volumesbooks/">Facebook</a>
               </Typography>
               <Typography>
-                <a className={classes.socialLink} target="_blank"
+                <a className={classes.socialLink} target="_blank" rel="noopener noreferrer"
                 href="https://twitter.com/volumesbooks?lang=en">Twitter</a>
-              </Typography>              
+              </Typography>
             </Grid>
             {/* End sidebar */}
           </Grid>
         </main>
       </div>
       {/* Footer */}
-      <footer className={classes.footer}>        
+      <footer className={classes.footer}>
         <Typography variant="h6" color="inherit" className={classes.grow}>
           <div className="logo">Chindig</div>
           <div className={classes.slogan}>Find your community</div>
